@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flower Recognition AI</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Flower Recognition AI</h1>
+      <p class="subtitle">
+        Upload a picture of a flower, and our AI will identify it for you!
+      </p>
+
+      <!-- Upload Section -->
+      <form id="uploadForm" enctype="multipart/form-data">
+        <div class="upload-box">
+          <input type="file" id="imageInput" name="file" accept="image/*" />
+          <button id="predictBtn" type="submit">Predict</button>
+        </div>
+      </form>
+
+      <!-- Result Section -->
+      <div class="result hidden" id="result">
+        <h4>Prediction Result</h4>
+        <h2 id="flowerName"></h2>
+        <p id="scientificName"></p>
+        <p id="confidence"></p>
+
+        <div class="image">
+          <div>
+            <h4>Original Image</h4>
+            <img id="originalImage" />
+          </div>
+
+          <!-- <div>
+            <h4>Model Attention (Grad-CAM)</h4>
+            <img id="gradcamImage" />
+          </div> -->
+        </div>
+      </div>
+
+      <!-- Loading -->
+      <p class="hidden" id="loading">Processing Image...</p>
+
+      <!-- Error -->
+      <p class="error hidden" id="error"></p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
