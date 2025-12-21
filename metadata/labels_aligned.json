@@ -1,0 +1,212 @@
+{
+  "0": {
+    "english": "Adathoda",
+    "hindi": "अडूसा",
+    "marathi": "अडुळसा",
+    "scientific": "Justicia adhatoda"
+  },
+  "1": {
+    "english": "Banana",
+    "hindi": "केला",
+    "marathi": "केळी",
+    "scientific": "Musa acuminata"
+  },
+  "2": {
+    "english": "Bougainvillea",
+    "hindi": "बोगनवेल",
+    "marathi": "बोगनवेल",
+    "scientific": "Bougainvillea glabra"
+  },
+  "3": {
+    "english": "Bright Eyes",
+    "hindi": "सदाबहार",
+    "marathi": "सदाफुली",
+    "scientific": "Catharanthus roseus"
+  },
+  "4": {
+    "english": "Bush Clock Vine",
+    "hindi": "नील लता",
+    "marathi": "नील लता",
+    "scientific": "Thunbergia erecta"
+  },
+  "5": {
+    "english": "Cape Jasmine",
+    "hindi": "गंधराज",
+    "marathi": "गंधराज",
+    "scientific": "Gardenia jasminoides"
+  },
+  "6": {
+    "english": "Champaka",
+    "hindi": "चम्पा",
+    "marathi": "सोनचाफा",
+    "scientific": "Magnolia champaca"
+  },
+  "7": {
+    "english": "Chandni",
+    "hindi": "चांदनी",
+    "marathi": "तगर",
+    "scientific": "Tabernaemontana divaricata"
+  },
+  "8": {
+    "english": "Chitrak",
+    "hindi": "चित्रक",
+    "marathi": "चित्रक",
+    "scientific": "Plumbago zeylanica"
+  },
+  "9": {
+    "english": "Common Lanthana",
+    "hindi": "घनेरी",
+    "marathi": "घाणेरी",
+    "scientific": "Lantana camara"
+  },
+  "10": {
+    "english": "Crown Flower",
+    "hindi": "मदार / आक",
+    "marathi": "रुई",
+    "scientific": "Calotropis gigantea"
+  },
+  "11": {
+    "english": "Datura",
+    "hindi": "धतूरा",
+    "marathi": "धोतरा",
+    "scientific": "Datura stramonium"
+  },
+  "12": {
+    "english": "Dhalia",
+    "hindi": "डाहलिया",
+    "marathi": "डाहलिया",
+    "scientific": "Dahlia pinnata"
+  },
+  "13": {
+    "english": "Four O' Clock Flower",
+    "hindi": "गुलअब्बास",
+    "marathi": "गुलबक्षी",
+    "scientific": "Mirabilis jalapa"
+  },
+  "14": {
+    "english": "Hibiscus",
+    "hindi": "गुड़हल",
+    "marathi": "जास्वंद",
+    "scientific": "Hibiscus rosa-sinensis"
+  },
+  "15": {
+    "english": "Honey Suckle",
+    "hindi": "मधु मालती",
+    "marathi": "मधु मालती",
+    "scientific": "Lonicera japonica"
+  },
+  "16": {
+    "english": "Indian Mallow",
+    "hindi": "कंघी",
+    "marathi": "मुद्रा",
+    "scientific": "Abutilon indicum"
+  },
+  "17": {
+    "english": "Jatropha",
+    "hindi": "रतनजोत",
+    "marathi": "मोगली एरंड",
+    "scientific": "Jatropha curcas"
+  },
+  "18": {
+    "english": "Malabar Melastome",
+    "hindi": "शोनापत",
+    "marathi": "पालोरे",
+    "scientific": "Melastoma malabathricum"
+  },
+  "19": {
+    "english": "Marigold",
+    "hindi": "गेंडा",
+    "marathi": "झेंडू",
+    "scientific": "Tagetes erecta"
+  },
+  "20": {
+    "english": "Nagapoovu",
+    "hindi": "नाग केसर",
+    "marathi": "नागकेशर",
+    "scientific": "Mesua ferrea"
+  },
+  "21": {
+    "english": "Nityakalyani",
+    "hindi": "सदाबहार",
+    "marathi": "सदाफुली",
+    "scientific": "Catharanthus roseus"
+  },
+  "22": {
+    "english": "Pink Oleander",
+    "hindi": "कनेर",
+    "marathi": "कण्हेर",
+    "scientific": "Nerium oleander"
+  },
+  "23": {
+    "english": "Pinwheel",
+    "hindi": "चांदनी",
+    "marathi": "तगर",
+    "scientific": "Tabernaemontana corymbosa"
+  },
+  "24": {
+    "english": "Rose",
+    "hindi": "गुलाब",
+    "marathi": "गुलाब",
+    "scientific": "Rosa spp."
+  },
+  "25": {
+    "english": "Shankupushpam",
+    "hindi": "अपराजिता",
+    "marathi": "गोकर्ण",
+    "scientific": "Clitoria ternatea"
+  },
+  "26": {
+    "english": "Spider Lily",
+    "hindi": "स्पाइडर लिली",
+    "marathi": "स्पायडर लिली",
+    "scientific": "Hymenocallis littoralis"
+  },
+  "27": {
+    "english": "Sunflower",
+    "hindi": "सूरजमुखी",
+    "marathi": "सूर्यफूल",
+    "scientific": "Helianthus annuus"
+  },
+  "28": {
+    "english": "Tecoma",
+    "hindi": "टिकोमा",
+    "marathi": "टिकोमा",
+    "scientific": "Tecoma stans"
+  },
+  "29": {
+    "english": "Thechi",
+    "hindi": "जंगल गेरियम",
+    "marathi": "बाकोरा",
+    "scientific": "Ixora coccinea"
+  },
+  "30": {
+    "english": "Thumba",
+    "hindi": "थुम्बा",
+    "marathi": "थुम्बा",
+    "scientific": "Leucas aspera"
+  },
+  "31": {
+    "english": "Touch Me Not",
+    "hindi": "छुई-मुई",
+    "marathi": "लाजाळू",
+    "scientific": "Mimosa pudica"
+  },
+  "32": {
+    "english": "Tridax procumbens",
+    "hindi": "घामरा",
+    "marathi": "दगडी पाला",
+    "scientific": "Tridax procumbens"
+  },
+  "33": {
+    "english": "Wild potato vine",
+    "hindi": "बन-आलू",
+    "marathi": "बन-आलू",
+    "scientific": "Ipomoea pandurata"
+  },
+  "34": {
+    "english": "Yellow Daisy",
+    "hindi": "पीली डेज़ी",
+    "marathi": "पिवळी डेझी",
+    "scientific": "Euryops pectinatus"
+  }
+}

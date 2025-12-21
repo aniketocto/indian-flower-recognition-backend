@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+
+# Ignore all datasets
+data/
+
+# Trained models
+models/*.pth
+
+# Outputs
+outputs/
+
+# OS files
+.DS_Store
+Thumbs.db
