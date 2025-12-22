@@ -14,7 +14,7 @@ const errorText = document.getElementById("error");
 
 const scanLine = document.getElementById("scanLine");
 
-const API_URL = "http://127.0.0.1:8000/predict";
+const API_URL = "http://192.168.1.106:8000/predict";
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault(); // 🔥 REQUIRED
