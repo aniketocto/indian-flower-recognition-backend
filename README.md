@@ -6,12 +6,15 @@ An end-to-end **flower image recognition system** built using **PyTorch**, **Fas
 
 ## 📌 Project Overview
 
-This project allows users to upload an image of a flower and receive:
+This project is an end-to-end **flower image recognition system** built using **PyTorch**, **FastAPI**, and a lightweight **HTML/CSS/JavaScript frontend**.
 
-* The **predicted flower name**
-* Its **scientific name**
-* **Prediction confidence**
-* (Optional) **Grad-CAM visual explanation** showing where the model focused
+The current version of the system supports classification of **37 curated flower classes**, providing:
+- Predicted flower name
+- Scientific name
+- Prediction confidence
+- Explainable AI visualization using Grad-CAM
+
+The architecture is designed to be modular and scalable, allowing additional flower classes to be added in future iterations.
 
 The system is split into:
 
@@ -234,4 +237,5 @@ Student | Full-Stack & ML Enthusiast
 ## 📜 License
 
 This project is for educational and research purposes.
+
 
