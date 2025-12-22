@@ -5,8 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flower Recognition AI</title>
     <link rel="stylesheet" href="style.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <div class="doodle flower">🌼</div>
+    <div class="doodle leaf">🍃</div>
+
     <div class="container">
       <h1>Flower Recognition AI</h1>
       <p class="subtitle">
@@ -16,33 +24,39 @@
       <!-- Upload Section -->
       <form id="uploadForm" enctype="multipart/form-data">
         <div class="upload-box">
-          <input type="file" id="imageInput" name="file" accept="image/*" />
+          <label class="file-upload">
+            <input
+              type="file"
+              id="imageInput"
+              name="file"
+              accept="image/*"
+              hidden
+            />
+            <span class="file-btn">📁 Choose flower image</span>
+            <span class="file-name" id="fileName">No file chosen</span>
+          </label>
+
           <button id="predictBtn" type="submit">Predict</button>
         </div>
       </form>
 
       <!-- Result Section -->
       <div class="result hidden" id="result">
+        <div class="image">
+          <div class="scan-wrapper">
+            <img id="originalImage" />
+            <div class="scan-line hidden" id="scanLine"></div>
+          </div>
+        </div>
+
         <h4>Prediction Result</h4>
         <h2 id="flowerName"></h2>
         <p id="scientificName"></p>
         <p id="confidence"></p>
-
-        <div class="image">
-          <div>
-            <h4>Original Image</h4>
-            <img id="originalImage" />
-          </div>
-
-          <!-- <div>
-            <h4>Model Attention (Grad-CAM)</h4>
-            <img id="gradcamImage" />
-          </div> -->
-        </div>
       </div>
 
       <!-- Loading -->
-      <p class="hidden" id="loading">Processing Image...</p>
+      <p class="hidden" id="loading">🌿 Analyzing botanical patterns...</p>
 
       <!-- Error -->
       <p class="error hidden" id="error"></p>

@@ -12,6 +12,8 @@ const gradcamImage = document.getElementById("gradcamImage");
 const loadingText = document.getElementById("loading");
 const errorText = document.getElementById("error");
 
+const scanLine = document.getElementById("scanLine");
+
 const API_URL = "http://127.0.0.1:8000/predict";
 
 form.addEventListener("submit", async (e) => {
@@ -34,7 +36,10 @@ form.addEventListener("submit", async (e) => {
   const reader = new FileReader();
   reader.onload = () => {
     originalImage.src = reader.result;
+    resultDiv.classList.remove("hidden"); // show image section
+    scanLine.classList.remove("hidden"); // start scanning
   };
+
   reader.readAsDataURL(file);
 
   // Build FormData PROPERLY
@@ -52,19 +57,40 @@ form.addEventListener("submit", async (e) => {
 
     const data = await response.json();
 
-    flowerName.textContent = data.prediction.english;
-    scientificName.textContent = data.prediction.scientific;
+    flowerName.textContent = "Flower Name: " + data.prediction.english;
+    scientificName.textContent =
+      "Scientific Name: " + data.prediction.scientific;
     confidenceText.textContent =
       "Confidence: " + (data.prediction.confidence * 100).toFixed(2) + "%";
 
     // gradcamImage.src =  data.gradcam_image;
 
     loadingText.classList.add("hidden");
-    resultDiv.classList.remove("hidden");
+    scanLine.classList.add("hidden"); // stop scanning
+
+    flowerName.style.opacity = 0;
+    scientificName.style.opacity = 0;
+    confidenceText.style.opacity = 0;
+
+    setTimeout(() => {
+      flowerName.style.opacity = 1;
+      scientificName.style.opacity = 1;
+      confidenceText.style.opacity = 1;
+    }, 200);
   } catch (err) {
     loadingText.classList.add("hidden");
     errorText.textContent = "Something went wrong. Please try again.";
     errorText.classList.remove("hidden");
     console.error(err);
+  }
+});
+
+const fileNameText = document.getElementById("fileName");
+
+imageInput.addEventListener("change", () => {
+  if (imageInput.files.length > 0) {
+    fileNameText.textContent = imageInput.files[0].name;
+  } else {
+    fileNameText.textContent = "No file chosen";
   }
 });
