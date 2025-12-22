@@ -1,0 +1,225 @@
+# 🌸 Flower Recognition System (AI + Grad-CAM)
+
+An end-to-end **flower image recognition system** built using **PyTorch**, **FastAPI**, and a lightweight **HTML/CSS/JavaScript frontend**. The project focuses on **learning-first ML engineering**, GPU utilization, explainable AI (Grad-CAM), and clean deployment architecture.
+
+---
+
+## 📌 Project Overview
+
+This project allows users to upload an image of a flower and receive:
+
+* The **predicted flower name**
+* Its **scientific name**
+* **Prediction confidence**
+* (Optional) **Grad-CAM visual explanation** showing where the model focused
+
+The system is split into:
+
+* **Frontend** (static, cloud-deployable)
+* **Backend** (FastAPI + PyTorch, local GPU-powered)
+
+---
+
+## 🎯 Objectives
+
+* Build a complete ML pipeline from scratch
+* Learn GPU-based training & inference
+* Implement explainable AI using Grad-CAM
+* Create a clean, interactive frontend
+* Deploy using a realistic, industry-style architecture
+
+---
+
+## 🖥️ System Requirements
+
+| Component | Details                    |
+| --------- | -------------------------- |
+| OS        | Windows 10 / 11            |
+| GPU       | NVIDIA RTX 2050 (4GB VRAM) |
+| CUDA      | 11.8                       |
+| Python    | 3.10                       |
+| Framework | PyTorch (CUDA-enabled)     |
+
+---
+
+## 🧱 Tech Stack
+
+### Backend
+
+* Python
+* PyTorch
+* FastAPI
+* Uvicorn
+* Grad-CAM
+
+### Frontend
+
+* HTML
+* CSS (custom doodle / botanical styles)
+* Vanilla JavaScript
+
+### Deployment
+
+* Frontend: Vercel (static hosting)
+* Backend: Local machine (GPU-powered)
+
+---
+
+## 📁 Project Structure
+
+```text
+ml-gpu-project/
+│
+├── app/
+│   ├── api/           # API routes
+│   ├── core/          # Model loading & config
+│   ├── models/        # Trained model files (.pth)
+│   ├── outputs/       # Grad-CAM outputs
+│   ├── utils/         # Helper functions
+│   └── main.py        # FastAPI entry point
+│
+├── data/              # Datasets
+│
+├── frontend/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── venv/              # Python virtual environment
+└── README.md
+```
+
+---
+
+## 🧪 Project Phases & Progress
+
+### ✅ Phase 1: GPU & CUDA Setup
+
+* Installed NVIDIA drivers
+* Installed CUDA Toolkit 11.8
+* Verified using `nvidia-smi` and `nvcc --version`
+
+### ✅ Phase 2: Python Environment Setup
+
+* Python 3.10 installed
+* Virtual environment created and activated
+
+### ✅ Phase 3: PyTorch GPU Installation
+
+```bash
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+```
+
+Verified GPU usage inside PyTorch.
+
+### ✅ Phase 4: Dataset Setup
+
+* Dataset: **Oxford Flowers 102**
+* Images: ~8,189
+* Size: ~350 MB
+* Labels validated
+
+### ✅ Phase 5: Model Training
+
+* Transfer learning using **MobileNetV2**
+* Backbone frozen, classifier trained
+* GPU-accelerated training
+* Final validation accuracy: ~92%
+
+### ✅ Phase 6: Inference & Explainability
+
+* Single-image inference implemented
+* Grad-CAM heatmaps generated
+* Images saved for frontend use
+
+### ✅ Phase 7: Frontend Integration
+
+* Image upload & preview
+* Scanning animation during inference
+* Result rendering with confidence scores
+
+---
+
+## 🚀 Running the Project Locally
+
+### 1️⃣ Activate Virtual Environment
+
+```bash
+cd ml-gpu-project
+venv\Scripts\activate
+```
+
+### 2️⃣ Start Backend (FastAPI)
+
+```bash
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+```
+
+Check:
+
+* API Docs: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+* Health: [http://127.0.0.1:8000/health](http://127.0.0.1:8000/health)
+
+### 3️⃣ Run Frontend
+
+```bash
+cd frontend
+python -m http.server 5500
+```
+
+Open:
+
+```
+http://127.0.0.1:5500
+```
+
+---
+
+## 🌍 Deployment Strategy (PATH A)
+
+### Frontend
+
+* Hosted on **Vercel** (static hosting)
+
+### Backend
+
+* Runs locally on GPU machine
+* Frontend communicates via REST API using local IP
+
+This approach:
+
+* Avoids cloud GPU costs
+* Is perfect for demos, viva, and learning
+* Follows real-world frontend/backend separation
+
+---
+
+## 🧠 Key Learnings
+
+* GPU compatibility is critical before ML work
+* Grad-CAM greatly improves model trust
+* ML projects benefit massively from good documentation
+* Separating frontend & backend simplifies deployment
+
+---
+
+## 📌 Future Improvements
+
+* Cloud GPU deployment (AWS / GCP)
+* Dockerization of backend
+* Authentication & rate limiting
+* Advanced Grad-CAM visualizations
+* Mobile-friendly UI
+
+---
+
+## 👤 Author
+
+**Aniket**
+Student | Full-Stack & ML Enthusiast
+
+---
+
+## 📜 License
+
+This project is for educational and research purposes.
