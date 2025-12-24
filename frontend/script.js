@@ -1,49 +1,57 @@
-const imageInput = document.getElementById("imageInput");
-const form = document.getElementById("uploadForm");
-
-const resultDiv = document.getElementById("result");
+const fileInput = document.getElementById("fileInput");
+const fileName = document.getElementById("fileName");
+const predictBtn = document.getElementById("predictBtn");
+const imagePreview = document.getElementById("imagePreview");
+const previewImg = document.getElementById("previewImg");
+const scanOverlay = document.getElementById("scanOverlay");
+const analyzingText = document.getElementById("analyzingText");
+const resultSection = document.getElementById("resultSection");
 const flowerName = document.getElementById("flowerName");
 const scientificName = document.getElementById("scientificName");
-const confidenceText = document.getElementById("confidence");
+const confidenceText = document.getElementById("confidenceText");
+const progressFill = document.getElementById("progressFill");
 
-const originalImage = document.getElementById("originalImage");
-const gradcamImage = document.getElementById("gradcamImage");
-
-const loadingText = document.getElementById("loading");
-const errorText = document.getElementById("error");
-
-const scanLine = document.getElementById("scanLine");
-
+// 🔥 YOUR REAL API
 const API_URL = "http://192.168.1.106:8000/predict";
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault(); // 🔥 REQUIRED
+/* ---------------- FILE SELECT ---------------- */
+fileInput.addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
 
-  const file = imageInput.files[0];
-  console.log("Selected file:", file);
+  fileName.textContent = file.name;
+  predictBtn.disabled = false;
 
-  if (!file) {
-    alert("Please select an image file first.");
-    return;
-  }
-
-  // Reset UI
-  resultDiv.classList.add("hidden");
-  errorText.classList.add("hidden");
-  loadingText.classList.remove("hidden");
-
-  // Preview original image
   const reader = new FileReader();
-  reader.onload = () => {
-    originalImage.src = reader.result;
-    resultDiv.classList.remove("hidden"); // show image section
-    scanLine.classList.remove("hidden"); // start scanning
+  reader.onload = (event) => {
+    previewImg.src = event.target.result;
+    imagePreview.classList.remove("hidden");
+
+    // reset states
+    resultSection.classList.add("hidden");
+    scanOverlay.classList.add("hidden");
+    analyzingText.classList.add("hidden");
+    progressFill.style.width = "0%";
   };
-
   reader.readAsDataURL(file);
+});
 
-  // Build FormData PROPERLY
-  const formData = new FormData(form); // <-- uses name="file"
+/* ---------------- PREDICT ---------------- */
+predictBtn.addEventListener("click", async () => {
+  const file = fileInput.files[0];
+  if (!file) return;
+
+  // UI → analyzing
+  predictBtn.disabled = true;
+  predictBtn.classList.add("analyzing");
+  predictBtn.textContent = "🔮🔮🔮 Analyzing...";
+  resultSection.classList.add("hidden");
+  scanOverlay.classList.remove("hidden");
+  analyzingText.classList.remove("hidden");
+  progressFill.style.width = "0%";
+
+  const formData = new FormData();
+  formData.append("file", file); // ⚠️ matches backend key
 
   try {
     const response = await fetch(API_URL, {
@@ -57,40 +65,39 @@ form.addEventListener("submit", async (e) => {
 
     const data = await response.json();
 
-    flowerName.textContent = "Flower Name: " + data.prediction.english;
-    scientificName.textContent =
-      "Scientific Name: " + data.prediction.scientific;
-    confidenceText.textContent =
-      "Confidence: " + (data.prediction.confidence * 100).toFixed(2) + "%";
+    /*
+      Expected backend response:
+      {
+        prediction: {
+          english: "Dahlia",
+          scientific: "Dahlia pinnata",
+          confidence: 0.947
+        }
+      }
+    */
 
-    // gradcamImage.src =  data.gradcam_image;
+    const confidencePercent = (data.prediction.confidence * 100).toFixed(2);
 
-    loadingText.classList.add("hidden");
-    scanLine.classList.add("hidden"); // stop scanning
+    // Stop scanning
+    scanOverlay.classList.add("hidden");
+    analyzingText.classList.add("hidden");
 
-    flowerName.style.opacity = 0;
-    scientificName.style.opacity = 0;
-    confidenceText.style.opacity = 0;
+    // Update result
+    flowerName.textContent = data.prediction.english;
+    scientificName.textContent = `Scientific name: ${data.prediction.scientific}`;
+    confidenceText.textContent = `Confidence: ${confidencePercent}%`;
+
+    resultSection.classList.remove("hidden");
 
     setTimeout(() => {
-      flowerName.style.opacity = 1;
-      scientificName.style.opacity = 1;
-      confidenceText.style.opacity = 1;
-    }, 200);
+      progressFill.style.width = confidencePercent + "%";
+    }, 150);
   } catch (err) {
-    loadingText.classList.add("hidden");
-    errorText.textContent = "Something went wrong. Please try again.";
-    errorText.classList.remove("hidden");
+    alert("❌ Something went wrong. Please try again.");
     console.error(err);
-  }
-});
-
-const fileNameText = document.getElementById("fileName");
-
-imageInput.addEventListener("change", () => {
-  if (imageInput.files.length > 0) {
-    fileNameText.textContent = imageInput.files[0].name;
-  } else {
-    fileNameText.textContent = "No file chosen";
+  } finally {
+    predictBtn.disabled = false;
+    predictBtn.classList.remove("analyzing");
+    predictBtn.textContent = "🔮 Predict";
   }
 });

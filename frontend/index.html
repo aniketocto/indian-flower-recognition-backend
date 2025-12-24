@@ -14,54 +14,49 @@
     />
   </head>
   <body>
-    <div class="doodle flower">🌼</div>
+    <div class="doodle flower">🌸</div>
     <div class="doodle leaf">🍃</div>
 
     <div class="container">
-      <h1>Flower Recognition AI</h1>
+      <h1>🌸 Flower Recognition AI 🌷</h1>
       <p class="subtitle">
         Upload a picture of a flower, and our AI will identify it for you!
       </p>
 
-      <!-- Upload Section -->
-      <form id="uploadForm" enctype="multipart/form-data">
-        <div class="upload-box">
-          <label class="file-upload">
-            <input
-              type="file"
-              id="imageInput"
-              name="file"
-              accept="image/*"
-              hidden
-            />
-            <span class="file-btn">📁 Choose flower image</span>
-            <span class="file-name" id="fileName">No file chosen</span>
-          </label>
+      <div class="divider">- - - - - - - - - - - - -</div>
 
-          <button id="predictBtn" type="submit">Predict</button>
+      <div class="upload-section">
+        <div class="file-upload">
+          <label for="fileInput" class="file-btn">📁 Choose flower image</label>
+          <input type="file" id="fileInput" accept="image/*" />
+          <span class="file-name" id="fileName">No file chosen</span>
         </div>
-      </form>
-
-      <!-- Result Section -->
-      <div class="result hidden" id="result">
-        <div class="image">
-          <div class="scan-wrapper">
-            <img id="originalImage" />
-            <div class="scan-line hidden" id="scanLine"></div>
-          </div>
-        </div>
-
-        <h4>Prediction Result</h4>
-        <h2 id="flowerName"></h2>
-        <p id="scientificName"></p>
-        <p id="confidence"></p>
+        <button class="predict-btn" id="predictBtn" disabled>🔮 Predict</button>
       </div>
 
-      <!-- Loading -->
-      <p class="hidden" id="loading">🌿 Analyzing botanical patterns...</p>
-
-      <!-- Error -->
-      <p class="error hidden" id="error"></p>
+      <div class="result-section hidden" id="resultSection">
+        <div class="result-title">✨ Prediction Result ✨</div>
+        <div class="flower-name" id="flowerName">Sunflower</div>
+        <div class="scientific-name" id="scientificName">Helianthus annuus</div>
+        <div class="confidence-text" id="confidenceText">Confidence: 91.2%</div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+        <div class="flower-emojis">🌺 🌸 🌼</div>
+      </div>
+      
+      <div class="image-preview hidden" id="imagePreview">
+        <div class="scan-wrapper" id="scanWrapper">
+          <img id="previewImg" src="" alt="Flower preview" />
+          <div class="scan-overlay hidden" id="scanOverlay">
+            <div class="scan-bg-top" id="scanBgTop"></div>
+            <div class="scan-line"></div>
+          </div>
+        </div>
+        <div class="analyzing-text hidden" id="analyzingText">
+          🌿 Analyzing botanical patterns...
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>

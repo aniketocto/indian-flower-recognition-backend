@@ -1,165 +1,24 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
   background: repeating-linear-gradient(#fafafa, #fafafa 28px, #f0f0f0 29px);
   font-family: "Patrick Hand", cursive;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.container {
-  max-width: 900px;
-  width: 100%;
-  height: 90vh; /* 👈 fixed height */
-  overflow-y: auto; /* 👈 internal scroll */
-  background: #fffef8;
-  padding: 30px;
-  border-radius: 20px;
-  border: 3px dashed #222;
-  box-shadow: 6px 6px 0px #000;
+  padding: 20px;
   position: relative;
-}
-
-.container::-webkit-scrollbar {
-  display: none;
-}
-
-.image img {
-  max-width: 100%;
-  max-height: 260px; /* 👈 prevents vertical explosion */
-  object-fit: contain;
-}
-
-/* Title */
-h1 {
-  text-align: center;
-  font-family: "Gloria Hallelujah", cursive;
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-}
-
-/* Subtitle */
-.subtitle {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #444;
-  margin-bottom: 30px;
-}
-
-/* Upload Box */
-.upload-box {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
-}
-
-/* File Input */
-input[type="file"] {
-  font-family: inherit;
-  padding: 8px;
-  border: 2px dashed #333;
-  border-radius: 12px;
-  background: #fff;
-}
-
-/* Button */
-button {
-  font-family: "Gloria Hallelujah", cursive;
-  padding: 10px 22px;
-  border-radius: 999px;
-  border: 3px solid #222;
-  background: #ffe066;
-  cursor: pointer;
-  font-size: 1rem;
-  box-shadow: 3px 3px 0 #000;
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
-}
-
-button:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #000;
-}
-
-/* Result Section */
-.result {
-  margin-top: 40px;
-  border-top: 2px dashed #333;
-  padding-top: 30px;
-}
-
-.result h4 {
-  font-family: "Gloria Hallelujah", cursive;
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-}
-
-#flowerName {
-  font-size: 2rem;
-  margin: 5px 0;
-}
-
-#scientificName {
-  font-style: italic;
-  color: #555;
-}
-
-#confidence {
-  margin-top: 8px;
-}
-
-/* Images */
-.image {
-  display: flex;
-  gap: 20px;
-  margin-top: 25px;
-  flex-wrap: wrap;
-}
-
-.image div {
-  flex: 1;
-  text-align: center;
-  padding: 12px;
-  border: 2px dashed #444;
-  border-radius: 16px;
-  background: #ffffff;
-}
-
-.image img {
-  max-width: 100%;
-  border-radius: 12px;
-  border: 2px solid #333;
-}
-
-/* Loading & Error */
-#loading {
-  text-align: center;
-  font-size: 1.2rem;
-  margin-top: 20px;
-}
-
-#error {
-  text-align: center;
-  color: #c0392b;
-  font-size: 1.1rem;
-  margin-top: 15px;
-}
-
-/* Utility */
-.hidden {
-  display: none;
+  overflow-x: hidden;
 }
 
 .doodle {
   position: fixed;
-  font-size: 2rem;
+  font-size: 2.5rem;
   opacity: 0.3;
   animation: float 6s ease-in-out infinite;
 }
@@ -184,62 +43,286 @@ button:hover {
     transform: translateY(-15px);
   }
 }
-.scan-wrapper {
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #fffef8;
+  padding: 40px;
+  border-radius: 24px;
+  border: 3px dashed #222;
+  box-shadow: 6px 6px 0px #000;
   position: relative;
-  display: inline-block;
-  width: 100%;
 }
 
-.scan-line {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(to right, transparent, #00ff88, transparent);
-  animation: scan 1.5s linear infinite;
-  box-shadow: 0 0 12px #00ff88;
+.container::-webkit-scrollbar {
+  display: none;
 }
 
-@keyframes scan {
-  from {
-    top: 0%;
-  }
-  to {
-    top: 100%;
-  }
+h1 {
+  text-align: center;
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  line-height: 1.2;
 }
+
+.subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.divider {
+  text-align: center;
+  color: #ccc;
+  margin: 20px 0;
+  letter-spacing: 2px;
+}
+
+.upload-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
 .file-upload {
   display: flex;
   align-items: center;
-  gap: 14px;
-  cursor: pointer;
-  user-select: none;
+  gap: 12px;
 }
 
-/* Fake button */
 .file-btn {
-  padding: 10px 18px;
+  padding: 12px 20px;
   border-radius: 999px;
   border: 3px dashed #222;
   background: #fff;
   font-family: "Gloria Hallelujah", cursive;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  cursor: pointer;
   box-shadow: 3px 3px 0 #000;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: all 0.15s ease;
+  user-select: none;
 }
 
-.file-upload:hover .file-btn {
+.file-btn:hover {
   transform: translate(-2px, -2px);
   box-shadow: 6px 6px 0 #000;
 }
 
-/* File name text */
 .file-name {
-  font-size: 0.9rem;
-  color: #555;
-  max-width: 220px;
+  font-size: 0.95rem;
+  color: #666;
+  max-width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.predict-btn {
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: 3px solid #222;
+  background: #ffe066;
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 #000;
+  transition: all 0.15s ease;
+}
+
+.predict-btn:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #000;
+}
+
+.predict-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.predict-btn.analyzing {
+  background: #ffd700;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.image-preview {
+  margin-top: 30px;
+  padding: 20px;
+  border: 3px dashed #444;
+  border-radius: 16px;
+  background: #fff;
+  text-align: center;
+}
+
+.scan-wrapper {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.scan-wrapper img {
+  max-width: 100%;
+  max-height: 350px;
+  display: block;
+  border-radius: 12px;
+  border: 3px solid #333;
+}
+
+.scan-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.scan-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, transparent, #00ff88, transparent);
+  box-shadow: 0 0 20px #00ff88, 0 0 40px #00ff88;
+  animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.scan-bg-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 255, 136, 0.1);
+  animation: scan-bg-top 2s linear infinite;
+}
+
+@keyframes scan-bg-top {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+.analyzing-text {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  color: #555;
+  text-align: center;
+}
+
+.result-section {
+  margin-top: 30px;
+  padding: 30px 20px;
+  border: 3px dashed #444;
+  border-radius: 16px;
+  background: #fff;
+  text-align: center;
+}
+
+.result-title {
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 1.3rem;
+  color: #888;
+  margin-bottom: 15px;
+}
+
+.flower-name {
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 2.5rem;
+  margin: 10px 0;
+  color: #222;
+}
+
+.scientific-name {
+  font-style: italic;
+  font-size: 1.3rem;
+  color: #666;
+  margin: 8px 0;
+}
+
+.confidence-text {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 15px 0 10px 0;
+}
+
+.progress-bar {
+  width: 100%;
+  max-width: 400px;
+  height: 12px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  margin: 15px auto;
+  overflow: hidden;
+  border: 2px solid #ccc;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(to right, #66bb6a, #4caf50);
+  border-radius: 8px;
+  transition: width 1s ease-out;
+}
+
+.flower-emojis {
+  font-size: 1.8rem;
+  margin-top: 15px;
+  letter-spacing: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+input[type="file"] {
+  display: none;
+}
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .predict-btn,
+  .file-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .upload-section {
+    flex-direction: column;
+  }
 }
